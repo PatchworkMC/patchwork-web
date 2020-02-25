@@ -1,0 +1,19 @@
+title: PatchworkMC
+baseurl: "/patchwork-web"
+url: ""
+github_url: https://github.com/PatchworkMC
+discord_url: https://discord.gg/YYZtNBG
+
+exclude:
+  - README.md
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+

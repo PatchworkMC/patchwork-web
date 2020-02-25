@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if page.title %}
+        <title>{{ page.title }} &ndash; {{ site.title }}</title>
+    {% else %}
+        <title>{{ site.title }}</title>
+    {% endif %}
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% endif %}
+
+    <link href="{{ "/assets/css/style.css" | relative_url }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="main">
+        <div class="container">
+            <a class="logo" href="{{ "/" | relative_url }}">
+                <img alt="Patchwork Logo" src={{ "/assets/img/patchwork.svg" | relative_url }} />
+                <span>{{ site.title }}</span>
+            </a>
+            <div class="right">
+                <a href="{{ site.discord_url }}">Discord</a>
+                <a href="{{ site.github_url }}">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="container">
+        {{ content }}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+            Copyright &copy; 2020 Patchwork Project <br/>
+            <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
+                Licensed under the GNU Affero GPL
+            </a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
