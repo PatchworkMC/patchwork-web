@@ -37,7 +37,7 @@ nav.main {
     width: 100%;
     height: $nav-height;
 
-    & a {
+    & a, label {
         color: $header-color;
         text-decoration: none;
         padding: 0px 10px;
@@ -55,10 +55,10 @@ nav.main {
         &:active {
             color: $prim-dark;
         }
+    }
 
-        &:first-child {
-            padding-left: 0px !important;
-        }
+    &>a:first-child {
+        padding-left: 0px !important;
     }
 
     & .logo {
@@ -79,6 +79,51 @@ nav.main {
     }
 
     &::after { clear: left; }
+}
+
+#nav-toggle-check { display: none; }
+@media (min-width: $bp-mobile) {
+    .nav-toggle-btn {
+        display: none;
+        & .hamburger {
+            display: none;
+        }
+    }
+}
+@media (max-width: $bp-mobile) {
+    .nav-toggle-btn {
+        width: $nav-height;
+        height: $nav-height;
+        line-height: $nav-height;
+        text-align: right;
+
+        & .hamburger {
+            color: $header-color;
+            display: inline;
+            width: $logo-size - 4;
+            height: $logo-size;
+            vertical-align: middle;
+            margin-bottom: 4px;
+            &:hover {
+            }
+        }
+    }
+    .navdrop {
+        padding: 8px 8px;
+        display: none;
+        position: absolute;
+        top: $nav-height + 4px;
+        box-shadow: 0 0 4px 0px $shadow-color;
+        right: 4px;
+
+        & a {
+            display: block;
+        }
+    }
+    #nav-toggle-check:checked ~ .navdrop {
+        background-color: #fff;
+        display: block;
+    }
 }
 
 body {

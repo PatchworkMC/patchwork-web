@@ -22,7 +22,14 @@
                 <img alt="Patchwork Logo" src={{ "/assets/img/patchwork.svg" | relative_url }} />
                 <span>{{ site.title }}</span>
             </a>
-            <div class="right">
+            <label for="nav-toggle-check" class="nav-toggle-btn right">
+                <img class="hamburger"
+                     src="{{ "/assets/img/hamburger.svg" | relative_url }}"
+                     alt="Expand Navigation">
+                </img>
+            </label>
+            <input hidden id="nav-toggle-check" type="checkbox">
+            <div class="right navdrop">
                 <a href="{{ site.discord_url }}">Discord</a>
                 <a href="{{ site.github_url }}">GitHub</a>
             </div>
