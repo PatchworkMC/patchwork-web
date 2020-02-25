@@ -137,6 +137,16 @@ footer {
   color: $footer-text-color;
 }
 
+h1.errorcode {
+    margin: 10px 0;
+    font-size: 4em;
+    border-left: none;
+    float: right;
+}
+
+.clearfloat {
+    clear: both;
+}
 .right {
     float: right !important;
 }
