@@ -64,7 +64,7 @@ nav.main {
     & .logo {
         padding: 0px;
         height: $nav-height;
-        font-size: 24pt;
+        font-size: 22pt;
         font-weight: bold;
         & span {
             vertical-align: middle;
@@ -100,8 +100,8 @@ nav.main {
         & .hamburger {
             color: $header-color;
             display: inline;
-            width: $logo-size - 4;
-            height: $logo-size;
+            width: 28px;
+            height: 32px;
             vertical-align: middle;
             margin-bottom: 4px;
             &:hover {
