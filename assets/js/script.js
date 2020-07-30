@@ -29,7 +29,6 @@ function init() {
 
     data = JSON.parse(data);
 
-    console.log(document.getElementsByClassName("title"));
     [].forEach.call(document.getElementsByClassName("title"), (item => {
         item.innerHTML = data.index.title;
     }));
