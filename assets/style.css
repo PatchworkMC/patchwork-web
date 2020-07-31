@@ -4,7 +4,15 @@
     scrollbar-width: thin;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-flow: column;
     background-color: rgb(27, 27, 27);
     margin: 0 0;
     font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -13,11 +21,12 @@ body {
 }
 
 .content {
+    flex: 1;
     border-radius: 5px;
     transition-duration: 0.5s;
     opacity: 0;
     background-color: rgb(30, 30, 30);
-    border: solid 2.5px rgb(20, 20, 20);
+    border: solid 5px rgb(20, 20, 20);
 }
 
 /* HEADER */
@@ -109,11 +118,11 @@ body {
 footer {
     border: solid 0px rgb(100, 100, 100);
     border-top-width: 2.5px;
-    border-bottom-width: 2.5px;
     background-color: #151515;
     padding-top: 8px;
     font-size: 10pt;
     color: #7f7f7f;
+    bottom: 0;
 }
 
 /* TEXT & LINKS */
@@ -183,7 +192,7 @@ a:active {
 
 /* MEDIA */
 
-@media (min-width: 920px) {
+@media (min-width: 920px) { /* DESKTOP */
     .container {
         max-width: 60%;
         margin-left: auto;
@@ -201,7 +210,7 @@ a:active {
     }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 920px) { /* MOBILE */
     .container {
         display: flex;
         justify-content: center;
@@ -217,6 +226,10 @@ a:active {
 
     .headerlinks a {
         display: none;
+    }
+
+    .nav {
+        width: 95%;
     }
 }
 
