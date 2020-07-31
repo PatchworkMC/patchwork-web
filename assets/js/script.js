@@ -52,7 +52,7 @@ var id = setInterval(() => {
 }, 10);
 
 function init() {
-    document.body.innerHTML = header + document.body.innerHTML + footer;
+    document.body.innerHTML = header + "<main class='content'>" + document.body.innerHTML + "</main>" + footer;
 
     data = JSON.parse(data);
 
