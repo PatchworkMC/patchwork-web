@@ -8,6 +8,7 @@ function load(url, callback) {
 }
 
 function redirect(url) {
+    closenav();
     if (window.scrollY == 0) {
         content.style.opacity = "0";
         setTimeout(() => {
@@ -33,9 +34,46 @@ function redirect(url) {
     }
 }
 
+function animatein(animation, elem) { // Adds/removes animation classes
+    elem.classList.remove(animation + "out");
+    elem.classList.add(animation + "in");
+}
+
+function animateout(animation, elem) { // Adds/removes animation classes
+    elem.classList.remove(animation + "in");
+    elem.classList.add(animation + "out");
+}
+
+function closenav() { // Close the navbar if it is open
+    if (navopen) {
+        togglenav();
+    }
+}
+
+function togglenav() { // Toggle the navigation bar
+    nav = document.getElementById("nav");
+    navopen = !navopen;
+    if (navopen) {
+        nav.style.transform = "translateY(0)";
+        nav.style.pointerEvents = "auto";
+        animatein("nav", nav);
+    } else {
+        nav.style.transform = "translateY(-99%)";
+        nav.style.pointerEvents = "none";
+        animateout("nav", nav);
+    }
+}
+
+
+
+
+var navopen = false;
 
 load("assets/header.html", (res) => {
     header = res;
+});
+load("assets/nav.html", (res) => {
+    nav = res;
 });
 load("assets/footer.html", (res) => {
     footer = res;
@@ -45,14 +83,14 @@ load("assets/data.json", (res) => {
 })
 var id = setInterval(() => {
     console.log(".");
-    if (header && footer && data) {
+    if (header && nav && footer && data) {
         clearInterval(id);
         init();
     }
 }, 10);
 
 function init() {
-    document.body.innerHTML = header + "<main class='content'>" + document.body.innerHTML + "</main>" + footer;
+    document.body.innerHTML = header + nav + "<main class='content'><div class='maincontainer'>" + document.body.innerHTML + "</div></main>" + footer;
 
     data = JSON.parse(data);
 
@@ -67,7 +105,13 @@ function init() {
     }));
 
     content = document.getElementsByClassName("content")[0];
+
     setTimeout(() => {
         content.style.opacity = "1";
+
+        header = undefined;
+        nav = undefined;
+        footer = undefined;
+        data = undefined;
     }, 100);
 }
