@@ -9,7 +9,7 @@ function load(url, callback) {
 
 function redirect(url) {
     if (window.scrollY == 0) {
-        document.getElementsByClassName("content")[0].style.opacity = "0";
+        content.style.opacity = "0";
         setTimeout(() => {
             location = url;
         }, 500);
@@ -24,7 +24,7 @@ function redirect(url) {
                 behavior: "smooth"
             });
             setTimeout(() => {
-                document.getElementsByClassName("content")[0].style.opacity = "0";
+                content.style.opacity = "0";
                 setTimeout(() => {
                     location = url;
                 }, 500);
@@ -44,11 +44,12 @@ load("assets/data.json", (res) => {
     data = res;
 })
 var id = setInterval(() => {
+    console.log(".");
     if (header && footer && data) {
         clearInterval(id);
         init();
     }
-}, 50);
+}, 10);
 
 function init() {
     document.body.innerHTML = header + document.body.innerHTML + footer;
@@ -65,5 +66,8 @@ function init() {
         item.href = data.githublink;
     }));
 
-    document.body.style.opacity = "1";
+    content = document.getElementsByClassName("content")[0];
+    setTimeout(() => {
+        content.style.opacity = "1";
+    }, 100);
 }
