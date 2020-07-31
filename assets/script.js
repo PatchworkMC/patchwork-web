@@ -58,7 +58,7 @@ function togglenav() { // Toggle the navigation bar
         nav.style.pointerEvents = "auto";
         animatein("nav", nav);
     } else {
-        nav.style.transform = "translateY(-99%)";
+        nav.style.transform = "translateY(-100%)";
         nav.style.pointerEvents = "none";
         animateout("nav", nav);
     }

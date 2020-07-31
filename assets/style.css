@@ -78,20 +78,19 @@ body {
 /* NAV */
 
 .nav {
-    border-radius: 25px;
+    border-radius: 2.5px;
     width: 400px;
-    height: 75%;
+    height: 90%;
     position: fixed;
     z-index: 1;
     right: 0;
     top: 0;
-    background-color: rgba(50, 50, 50, 0.75);
-    border: solid 5px rgb(20, 20, 20);
-    backdrop-filter: blur(5px);
+    background-color: rgb(20, 20, 20);
+    border: solid 5px #79190b;
     overflow-x: hidden;
     white-space: nowrap;
     padding-top: 64px;
-    transform: translateY(-99%);
+    transform: translateY(-100%);
     pointer-events: none;
 }
 
@@ -196,6 +195,10 @@ a:active {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .mobilelinks {
+        display: none;
+    }
 }
 
 @media (max-width: 920px) {
@@ -221,7 +224,7 @@ a:active {
 
 @keyframes navin {
     0% {
-        transform: translateY(-99%);
+        transform: translateY(-100%);
     }
 
     100% {
@@ -235,7 +238,7 @@ a:active {
     }
 
     100% {
-        transform: translateY(-99%);
+        transform: translateY(-100%);
     }
 }
 
