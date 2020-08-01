@@ -1,7 +1,7 @@
 function load(url, callback) {
     var request = new XMLHttpRequest();
     request.open("GET", url);
-    request.onload = () => {
+    request.onload = function() {
         callback(request.response);
     }
     request.send();
@@ -11,22 +11,22 @@ function redirect(url) {
     closenav();
     if (window.scrollY == 0) {
         content.style.opacity = "0";
-        setTimeout(() => {
+        setTimeout(function() {
             location = url;
         }, 500);
     } else {
         window.scrollTo({
             top: window.scrollY - 1
         });
-        setTimeout(() => {
+        setTimeout(function() {
             window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: "smooth"
             });
-            setTimeout(() => {
+            setTimeout(function() {
                 content.style.opacity = "0";
-                setTimeout(() => {
+                setTimeout(function() {
                     location = url;
                 }, 500);
             }, 500);
@@ -69,19 +69,19 @@ function togglenav() { // Toggle the navigation bar
 
 var navopen = false;
 
-load("assets/header.html", (res) => {
+load("assets/header.html", function(res) {
     header = res;
 });
-load("assets/nav.html", (res) => {
+load("assets/nav.html", function(res) {
     nav = res;
 });
-load("assets/footer.html", (res) => {
+load("assets/footer.html", function(res) {
     footer = res;
 });
-load("assets/data.json", (res) => {
+load("assets/data.json", function(res) {
     data = res;
 })
-var id = setInterval(() => {
+var id = setInterval(function() {
     console.log(".");
     if (header && nav && footer && data) {
         clearInterval(id);
@@ -94,19 +94,19 @@ function init() {
 
     data = JSON.parse(data);
 
-    [].forEach.call(document.getElementsByClassName("title"), (item => {
+    [].forEach.call(document.getElementsByClassName("title"), function(item) {
         item.innerHTML = data.index.title;
-    }));
-    [].forEach.call(document.getElementsByClassName("discordlink"), (item => {
+    });
+    [].forEach.call(document.getElementsByClassName("discordlink"), function(item) {
         item.href = data.discordlink;
-    }));
-    [].forEach.call(document.getElementsByClassName("githublink"), (item => {
+    });
+    [].forEach.call(document.getElementsByClassName("githublink"), function(item) {
         item.href = data.githublink;
-    }));
+    });
 
     content = document.getElementsByClassName("content")[0];
 
-    setTimeout(() => {
+    setTimeout(function() {
         content.style.opacity = "1";
 
         header = undefined;
