@@ -2,7 +2,7 @@ title: PatchworkMC
 baseurl: ""
 url: ""
 github_url: https://github.com/PatchworkMC
-discord_url: https://discord.gg/YYZtNBG
+discord_url: https://patchworkmc.net/discord
 
 exclude:
   - README.md
